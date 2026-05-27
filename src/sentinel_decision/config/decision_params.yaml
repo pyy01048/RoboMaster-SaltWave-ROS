@@ -1,0 +1,3 @@
+bt_file: "/home/pyy/Documents/sentiel/install/sentinel_decision/share/sentinel_decision/behavior_trees/sentry_navigation.xml"
+tick_rate_hz: 20.0
+groot_port: 1666

@@ -1,0 +1,29 @@
+/**:
+  ros__parameters:
+    use_sim_time: false
+    publish_tf: true
+    publish_rate: 200
+    
+    # EKF过程噪声
+    ekf:
+      process_noise_pos: 0.01
+      process_noise_theta: 0.001
+      process_noise_vel: 0.1
+      process_noise_omega: 0.01
+      
+      # 观测噪声
+      lidar_noise_pos: 0.05
+      lidar_noise_theta: 0.01
+      wheel_noise_vel: 0.1
+      
+      # 传感器最大年龄
+      max_lidar_age: 0.2
+      max_imu_age: 0.1
+      max_vision_age: 0.2
+      max_encoder_age: 0.1
+    
+    # IMU预滤波参数
+    imu:
+      complementary_gain: 0.95
+      update_rate: 500.0
+      accel_magnitude_tolerance: 2.0

@@ -1,0 +1,12 @@
+{
+  "ros.distro": "humble",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/install/sentinel_navigation/lib/python3.10/site-packages",
+    "/opt/ros/humble/lib/python3.10/site-packages"
+  ],
+  "cmake.configureOnOpen": false,
+  "files.associations": {
+    "*.launch.py": "python",
+    "*.xacro": "xml"
+  }
+}

@@ -1,0 +1,137 @@
+# TEB Local Planner参数配置 - 麦克纳姆轮优化版
+# 适用于全向移动机器人
+
+FollowPath:
+  plugin: "teb_local_planner::TebLocalPlannerROS"
+  
+  # ===== 运动学配置（麦克纳姆轮关键参数）=====
+  odom_topic: "/odom_filtered"
+  map_frame: "odom"
+  
+  # 允许原地旋转（麦克纳姆轮特性）
+  min_turning_radius: 0.0
+  
+  # 直接发送速度向量而非角速度（利用全向性）
+  cmd_angle_instead_rotvel: true
+  
+  # 全向移动允许横向运动
+  holonomic_robot: true
+  
+  # ===== 速度和加速度限制 =====
+  max_vel_x: 1.5
+  max_vel_x_backwards: 0.8
+  max_vel_y: 1.0
+  max_vel_theta: 2.0
+  
+  acc_lim_x: 2.0
+  acc_lim_y: 1.5
+  acc_lim_theta: 3.0
+  
+  # ===== 轨迹优化参数 =====
+  teb_autosize: true
+  dt_ref: 0.3
+  dt_hysteresis: 0.1
+  min_samples: 3
+  max_samples: 500
+  
+  global_plan_overwrite_orientation: true
+  global_plan_viapoint_sep: -0.1
+  via_points_ordered: true
+  
+  # 迭代优化参数
+  max_global_plan_lookahead_poses: 10
+  local_plan_lookahead_poses: 5
+  force_reinit_new_goal_dist: 1.5
+  force_reinit_new_goal_angular: 0.5
+  
+  # ===== 权重参数（麦克纳姆轮调整）=====
+  # 降低非完整运动学权重（允许横向运动）
+  weight_kinematics_nh: 50.0
+  
+  # 前向运动权重
+  weight_kinematics_forward_drive: 1.0
+  
+  # 转向权重
+  weight_kinematics_turning_radius: 1.0
+  
+  # 时间最优权重
+  weight_optimal_time: 1.0
+  
+  # 目标权重
+  weight_shortest_path: 1.0
+  weight_obstacle: 50.0
+  weight_inflation: 0.1
+  weight_dynamic_obstacle: 30.0
+  weight_dynamic_obstacle_inflation: 0.1
+  weight_velocity_obstacle_ratio: 0.0
+  
+  # 加速度权重
+  weight_acc_lim_x: 1.0
+  weight_acc_lim_y: 1.0
+  weight_acc_lim_theta: 1.0
+  
+  # 速度权重
+  weight_max_vel_x: 1.0
+  weight_max_vel_y: 1.0
+  weight_max_vel_theta: 1.0
+  
+  # ===== 障碍物参数 =====
+  min_obstacle_dist: 0.25
+  inflation_dist: 0.1
+  
+  # 障碍物类型
+  include_costmap_obstacles: true
+  costmap_obstacles_inflation: 0.1
+  legacy_obstacle_association: false
+  obstacle_association_force_inclusion_factor: 1.5
+  obstacle_association_cutoff_factor: 5.0
+  
+  # 动态障碍物
+  include_dynamic_obstacles: true
+  
+  # ===== 可行性检查 =====
+  feasibility_check_no_poses: 5
+  feasibility_check_lookahead_distance: 1.5
+  
+  # ===== 机器人轮廓 =====
+  footprint_model:
+    type: "polygon"
+    vertices: [
+      [0.25, 0.20],
+      [0.25, -0.20],
+      [-0.25, -0.20],
+      [-0.25, 0.20]
+    ]
+  
+  # ===== 可视化 =====
+  visualize_tp_time: true
+  visualize_tp_waypoints: true
+  
+  # ===== 其他参数 =====
+  xy_goal_tolerance: 0.10
+  yaw_goal_tolerance: 0.05
+  free_goal_vel: false
+  
+  # 完全初始化
+  complete_global_plan: true
+  
+  # 发布轨迹
+  publish_plan: true
+  publish_time_step: 0.1
+  
+  # 优化器参数
+  optimization_activate: true
+  optimization_verbose: false
+  heterogeneity: 0.0
+  
+  # Homotopy类规划
+  enable_homotopy_class_planning: true
+  max_number_classes: 5
+  selection_cost_hysteresis: 1.0
+  selection_prefer_initial_plan: 0.95
+  h_signature_prescaler: 1.0
+  h_signature_threshold: 0.1
+  obstacle_key: 0.1
+  obstacle_heading_threshold: 0.45
+  viapoints_all_candidates: true
+  switch_blocking_period: 0.5

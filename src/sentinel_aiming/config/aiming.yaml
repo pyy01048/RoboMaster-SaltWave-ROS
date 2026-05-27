@@ -1,0 +1,34 @@
+detector:
+  ros__parameters:
+    camera_topic: "/camera/image_raw"
+    camera_info_topic: "/camera/camera_info"
+    detection_topic: "/detections"
+    model_path: "/home/pyy/Documents/sentiel/models/yolov8n.engine"
+    conf_threshold: 0.25
+    nms_threshold: 0.65
+
+tracker:
+  ros__parameters:
+    detections_topic: "/detections"
+    tracked_targets_topic: "/tracked_targets"
+    track_buffer: 30
+    match_thresh: 0.6
+    track_thresh: 0.5
+    confirm_thresh: 0.7
+
+ballistics:
+  ros__parameters:
+    tracked_targets_topic: "/tracked_targets"
+    aim_target_topic: "/aim_target"
+    bullet_speed: 25.0
+
+servo_controller:
+  ros__parameters:
+    aim_target_topic: "/aim_target"
+    gimbal_cmd_topic: "/gimbal_cmd"
+    pitch_kp: 0.8
+    pitch_ki: 0.01
+    pitch_kd: 0.1
+    yaw_kp: 0.8
+    yaw_ki: 0.01
+    yaw_kd: 0.1

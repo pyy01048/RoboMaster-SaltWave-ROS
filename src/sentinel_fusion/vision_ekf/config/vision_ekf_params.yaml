@@ -1,0 +1,6 @@
+imu_topic: "/imu_filtered"
+odom_topic: "/Odometry"
+odom_pub_topic: "/odom_vision"
+vision_update_rate: 60.0
+vision_process_noise_std: 0.01
+vision_measurement_noise_std: 0.1

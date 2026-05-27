@@ -1,0 +1,14 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <ReactiveFallback name="Root">
+            <Sequence name="EngageEnemy">
+                <IsEnemyVisible/>
+                <TrackAction/>
+            </Sequence>
+            <Sequence name="Patrol">
+                <SetMode mode="1"/>
+                <PatrolAction/>
+            </Sequence>
+        </ReactiveFallback>
+    </BehaviorTree>
+</root>

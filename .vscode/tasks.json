@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "colcon build",
+      "type": "shell",
+      "command": "source /opt/ros/humble/setup.bash && colcon build --symlink-install",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "bringup navigation",
+      "type": "shell",
+      "command": "source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 launch sentinel_bringup bringup.launch.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "run tests",
+      "type": "shell",
+      "command": "source /opt/ros/humble/setup.bash && colcon test --event-handlers console_direct+",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

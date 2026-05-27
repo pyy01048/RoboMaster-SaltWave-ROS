@@ -1,0 +1,27 @@
+sentinel_commander:
+  ros__parameters:
+    global_frame: map
+    patrol_loop: true
+    goal_timeout_sec: 25.0
+    target_timeout_sec: 0.6
+    aiming_distance_m: 2.2
+    retreat_hp_threshold: 120
+    retreat_goal: [-2.0, 0.0, 3.14159]
+    # x, y, yaw triples in map frame. Replace with measured RMUL/RMUC field points.
+    patrol_points:
+      [
+        1.6, 0.9, 0.0,
+        1.4, -0.9, -1.57,
+        -1.4, -0.9, 3.14159,
+        -1.6, 0.9, 1.57
+      ]
+
+velocity_safety_filter:
+  ros__parameters:
+    input_topic: cmd_vel
+    output_topic: cmd_vel_safe
+    max_vx: 1.5
+    max_vy: 1.5
+    max_wz: 3.5
+    power_limit_scale: 0.55
+    cmd_timeout_sec: 0.25

@@ -1,0 +1,67 @@
+# FAST-LIO2配置 - Mid360 + 在线外参标定
+# 用于哨兵机器人高精度定位
+
+common:
+  lid_topic:  "/livox/lidar"
+  imu_topic:  "/livox/imu"
+  pre_time:   1.0
+  
+preprocess:
+  lidar_type: 1    # 1 for Livox
+  scan_line: 6
+  timestamp_unit: 3   # 0-second, 1-milisecond, 2-microsecond, 3-nanosecond
+  blind: 0.5
+  
+mapping:
+  acc_cov: 0.1
+  gyr_cov: 0.1
+  b_acc_cov: 0.0001
+  b_gyr_cov: 0.0001
+  
+  fov_degree: 360
+  det_range: 100.0
+  extrinsic_est_en: true  # 启用在线外参标定
+  
+  # 初始外参猜测（LiDAR到IMU）
+  # 根据实际安装位置调整
+  extrinsic_T: [ 0.0, 0.0, 0.0 ]    # 平移 [x, y, z] (米)
+  extrinsic_R: [ 1, 0, 0,
+                 0, 1, 0,
+                 0, 0, 1 ]          # 旋转矩阵 (行优先)
+  
+  # IMU参数
+  gravity: [ 0.0, 0.0, -9.81 ]      # 重力向量
+  
+  # 点云处理
+  filter_size_corner: 0.2
+  filter_size_surf: 0.4
+  filter_size_map: 0.2
+  
+  # 优化参数
+  max_iteration: 5
+  max_planar_points: 10
+  
+  # 关键帧选择
+  keyframe_dist: 0.5
+  keyframe_angle: 0.2
+  
+  # 发布频率
+  publish_rate: 100.0
+  publish_tf: true
+  
+publish:
+  path_en: true
+  scan_publish_en: true
+  dense_publish_en: true
+  scan_bodyframe_pub_en: false
+  
+pcd_save:
+  pcd_save_en: false
+  interval: -1
+
+# 外参标定建议:
+# 1. 启动后让机器人做充分旋转（至少360度）
+# 2. 然后做平移运动（前后左右）
+# 3. 观察外参收敛情况
+# 4. 收敛后记录extrinsic_T和extrinsic_R
+# 5. 下次启动时设置extrinsic_est_en: false并填入收敛值

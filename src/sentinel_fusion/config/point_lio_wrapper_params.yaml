@@ -1,0 +1,3 @@
+pointcloud_topic: "/livox/lidar"
+imu_topic: "/imu_filtered"
+odom_topic: "/Odometry"

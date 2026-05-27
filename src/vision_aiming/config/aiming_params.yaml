@@ -1,0 +1,16 @@
+/**:
+  ros__parameters:
+    camera_topic: "/camera/image_raw"
+    detection_topic: "/detections"
+    model_path: ""
+    conf_threshold: 0.25
+    
+    target_topic: "/tracked_targets"
+    gimbal_topic: "/gimbal_cmd"
+    bullet_speed: 25.0
+    camera_height: 0.3
+    
+    pitch_kp: 0.8
+    yaw_kp: 0.8
+    pitch_max: 30.0
+    yaw_max: 45.0

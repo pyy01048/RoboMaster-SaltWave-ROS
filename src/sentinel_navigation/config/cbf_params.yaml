@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    safe_distance: 0.5
+    max_decel: 1.0
+    cbf_gain: 2.0

@@ -1,0 +1,99 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+    - Alpha: 0.7
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Value: /map
+    - Class: rviz_default_plugins/LaserScan
+      Color: 255; 80; 80
+      Enabled: true
+      Name: Scan
+      Size (Pixels): 3
+      Size (m): 0.03
+      Style: Points
+      Topic:
+        Value: /scan
+    - Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.04
+      Name: Global Plan
+      Topic:
+        Value: /plan
+    - Class: rviz_default_plugins/Path
+      Color: 255; 255; 0
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.03
+      Name: Local Plan
+      Topic:
+        Value: /local_plan
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Name: RobotModel
+      Description Topic:
+        Value: /robot_description
+    - Class: rviz_default_plugins/PoseWithCovariance
+      Enabled: true
+      Name: AMCL Pose
+      Topic:
+        Value: /amcl_pose
+    - Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Name: Odom
+      Topic:
+        Value: /odom
+  Enabled: true
+  Global Options:
+    Background Color: 30; 30; 30
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+  Value: true
+Views:
+  Current:
+    Class: rviz_default_plugins/Orbit
+    Distance: 8
+    Focal Point:
+      X: 0
+      Y: 0
+      Z: 0
+    Name: Current View
+    Pitch: 1.1
+    Target Frame: map
+    Yaw: 0.78

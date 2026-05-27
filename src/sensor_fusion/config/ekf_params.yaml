@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    imu_process_noise: 0.01
+    lidar_meas_noise: 0.05
+    publish_rate: 200

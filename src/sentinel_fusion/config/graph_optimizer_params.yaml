@@ -1,0 +1,7 @@
+lidar_odom_topic: "/Odometry"
+imu_topic: "/imu_filtered"
+optimized_odom_topic: "/odom_optimized"
+loop_closure_distance: 2.0
+loop_closure_angle: 0.3
+graph_update_rate: 10.0
+graph_optimization_iterations: 5

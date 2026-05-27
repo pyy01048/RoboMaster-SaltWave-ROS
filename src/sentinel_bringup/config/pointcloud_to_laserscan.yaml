@@ -1,0 +1,39 @@
+# 点云转激光扫描配置
+# 用于Nav2代价地图
+
+pointcloud_to_laserscan:
+  ros__parameters:
+    # 订阅的3D点云话题
+    cloud_in: "/livox/lidar"
+    
+    # 发布的2D激光扫描话题
+    scan_out: "/scan"
+    
+    # 过滤高度范围（排除地面和顶部干扰）
+    min_height: 0.15      # 最小高度（米）
+    max_height: 0.4       # 最大高度（米）
+    
+    # 扫描参数
+    angle_min: -3.14159   # 最小角度（弧度）
+    angle_max: 3.14159    # 最大角度（弧度）
+    angle_increment: 0.00872  # 角度增量（约0.5度）
+    scan_time: 0.1        # 扫描时间
+    range_min: 0.1        # 最小距离
+    range_max: 20.0       # 最大距离
+    
+    # 目标坐标系
+    target_frame: "base_link"
+    
+    # 变换容忍时间
+    transform_tolerance: 0.01
+    
+    # 队列大小
+    queue_size: 10
+    
+    # 使用仿真时间
+    use_sim_time: false
+
+# 代价地图配置建议:
+# 1. local_costmap使用obstacle_layer订阅/scan
+# 2. inflation_radius设为机器人半径+安全裕度
+# 3. 对于麦克纳姆轮，考虑使用voxel_layer处理3D障碍物
