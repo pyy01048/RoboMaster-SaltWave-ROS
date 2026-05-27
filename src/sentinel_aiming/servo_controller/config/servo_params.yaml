@@ -1,8 +1,0 @@
-aim_target_topic: "/aim_target"
-gimbal_cmd_topic: "/gimbal_cmd"
-yaw_p: 1.0
-yaw_i: 0.0
-yaw_d: 0.0
-pitch_p: 1.0
-pitch_i: 0.0
-pitch_d: 0.0

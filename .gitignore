@@ -1,7 +1,57 @@
+# ROS2工作空间
 build/
 install/
 log/
 .colcon/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+*.egg
 .pytest_cache/
+
+# IDE和编辑器
+.vscode/
+.idea/
+.arts/
+.codeartsdoer/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 编译产物
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# 日志
+*.log
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# 系统文件
+Thumbs.db
+.DS_Store
+Desktop.ini

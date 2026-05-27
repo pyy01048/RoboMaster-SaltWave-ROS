@@ -1,3 +1,0 @@
-input_topic: "/livox/imu"
-output_topic: "/imu_filtered"
-filter_window_size: 5

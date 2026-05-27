@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container:
+      image: ros:humble-ros-base
+      
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        apt-get update
+        apt-get install -y python3-pip
+        pip3 install colcon-common-extensions
+        
+    - name: Build workspace
+      run: |
+        source /opt/ros/humble/setup.bash
+        colcon build --symlink-install
+        
+    - name: Run tests
+      run: |
+        source /opt/ros/humble/setup.bash
+        colcon test
+        colcon test-result --verbose

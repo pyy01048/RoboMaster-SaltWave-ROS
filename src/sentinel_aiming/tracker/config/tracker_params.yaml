@@ -1,6 +1,0 @@
-detections_topic: "/detections"
-tracked_targets_topic: "/tracked_targets"
-track_buffer: 30
-match_thresh: 0.6
-track_thresh: 0.5
-confirm_thresh: 0.7

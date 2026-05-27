@@ -1,3 +1,0 @@
-tracked_targets_topic: "/tracked_targets"
-aim_target_topic: "/aim_target"
-bullet_speed: 25.0
